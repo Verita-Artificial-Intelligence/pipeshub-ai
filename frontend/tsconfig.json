@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["node", "vite/client"],
     "strict": true,
     "noEmit": true,
     "allowJs": true,

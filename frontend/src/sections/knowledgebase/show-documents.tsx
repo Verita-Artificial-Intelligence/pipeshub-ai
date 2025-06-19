@@ -1,44 +1,48 @@
 // RecordDocumentViewer.tsx - Viewport Mode (Full height below navbar)
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
+
 import { Icon } from '@iconify/react';
-import React, { useState, useCallback, useRef, useEffect } from 'react';
-import downloadIcon from '@iconify-icons/mdi/download';
-import zipIcon from '@iconify-icons/vscode-icons/file-type-zip';
-import pdfIcon from '@iconify-icons/vscode-icons/file-type-pdf2';
-import wordIcon from '@iconify-icons/vscode-icons/file-type-word2';
-import imageIcon from '@iconify-icons/vscode-icons/file-type-image';
-import excelIcon from '@iconify-icons/vscode-icons/file-type-excel2';
-import defaultFileIcon from '@iconify-icons/mdi/file-document-outline';
-import powerpointIcon from '@iconify-icons/vscode-icons/file-type-powerpoint2';
-import eyeIcon from '@iconify-icons/mdi/eye';
 import closeIcon from '@iconify-icons/mdi/close';
+import defaultFileIcon from '@iconify-icons/mdi/file-document-outline';
+import downloadIcon from '@iconify-icons/mdi/download';
+import eyeIcon from '@iconify-icons/mdi/eye';
 import fullscreenIcon from '@iconify-icons/mdi/fullscreen';
 import fullscreenExitIcon from '@iconify-icons/mdi/fullscreen-exit';
+import excelIcon from '@iconify-icons/vscode-icons/file-type-excel2';
+import imageIcon from '@iconify-icons/vscode-icons/file-type-image';
+import pdfIcon from '@iconify-icons/vscode-icons/file-type-pdf2';
+import powerpointIcon from '@iconify-icons/vscode-icons/file-type-powerpoint2';
+import wordIcon from '@iconify-icons/vscode-icons/file-type-word2';
+import zipIcon from '@iconify-icons/vscode-icons/file-type-zip';
 
 import {
+  Alert,
   Box,
-  Stack,
-  Typography,
-  IconButton,
   CircularProgress,
   Fade,
-  Alert,
+  IconButton,
   Snackbar,
+  Stack,
+  Typography,
   useTheme,
 } from '@mui/material';
 
 import axios from 'src/utils/axios';
+
 import { CONFIG } from 'src/config-global';
-import { handleDownloadDocument } from './utils';
-import type { Record } from './types/record-details';
+
 import { getConnectorPublicUrl } from '../accountdetails/account-settings/services/utils/services-configuration-service';
 import { ORIGIN } from './constants/knowledge-search';
-import PdfHighlighterComp from '../qna/chatbot/components/pdf-highlighter';
+import type { Record } from './types/record-details';
+import { handleDownloadDocument } from './utils';
+
 import DocxViewer from '../qna/chatbot/components/docx-highlighter';
 import ExcelViewer from '../qna/chatbot/components/excel-highlighter';
 import HtmlViewer from '../qna/chatbot/components/html-highlighter';
-import TextViewer from '../qna/chatbot/components/text-highlighter';
 import MarkdownViewer from '../qna/chatbot/components/markdown-highlighter';
+import PdfHighlighterComp from '../qna/chatbot/components/pdf-highlighter';
+import TextViewer from '../qna/chatbot/components/text-highlighter';
 
 // Simplified state management for viewport mode
 interface DocumentViewerState {

@@ -1,48 +1,47 @@
 import type {
-  Message,
   Citation,
-  Metadata,
   Conversation,
   CustomCitation,
-  FormattedMessage,
   ExpandedCitationsState,
+  FormattedMessage,
+  Message,
 } from 'src/types/chat-bot';
+
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
 
 import { Icon } from '@iconify/react';
 import menuIcon from '@iconify-icons/mdi/menu';
-import closeIcon from '@iconify-icons/mdi/close';
-import { useParams, useNavigate } from 'react-router';
-import React, { useRef, useState, useEffect, useCallback } from 'react';
 
 import {
-  Box,
   Alert,
+  Box,
   Button,
-  styled,
-  Tooltip,
-  Snackbar,
-  useTheme,
-  IconButton,
   CircularProgress,
+  IconButton,
+  Snackbar,
+  Tooltip,
   alpha,
+  styled,
+  useTheme,
 } from '@mui/material';
 
 import axios from 'src/utils/axios';
 
 import { CONFIG } from 'src/config-global';
 
-import { ORIGIN } from 'src/sections/knowledgebase/constants/knowledge-search';
 import { getConnectorPublicUrl } from 'src/sections/accountdetails/account-settings/services/utils/services-configuration-service';
+import { ORIGIN } from 'src/sections/knowledgebase/constants/knowledge-search';
 
 import ChatInput from './components/chat-input';
-import ChatSidebar from './components/chat-sidebar';
-import HtmlViewer from './components/html-highlighter';
-import TextViewer from './components/text-highlighter';
-import ExcelViewer from './components/excel-highlighter';
 import ChatMessagesArea from './components/chat-message-area';
-import PdfHighlighterComp from './components/pdf-highlighter';
-import MarkdownViewer from './components/markdown-highlighter';
+import ChatSidebar from './components/chat-sidebar';
 import DocxHighlighterComp from './components/docx-highlighter';
+import ExcelViewer from './components/excel-highlighter';
+import HtmlViewer from './components/html-highlighter';
+import MarkdownViewer from './components/markdown-highlighter';
+import PdfHighlighterComp from './components/pdf-highlighter';
+import TextViewer from './components/text-highlighter';
 import WelcomeMessage from './components/welcome-message';
 
 const DRAWER_WIDTH = 300;
@@ -109,7 +108,7 @@ const ChatInterface = () => {
   const [isViewerReady, setIsViewerReady] = useState<boolean>(false);
   const [transitioning, setTransitioning] = useState<boolean>(false);
   const [fileBuffer, setFileBuffer] = useState<ArrayBuffer | null>();
-  const [isPdf, setIsPdf] = useState<boolean>(false);
+
   const [isDocx, setIsDocx] = useState<boolean>(false);
   const [isMarkdown, setIsMarkdown] = useState<boolean>(false);
   const [isHtml, setIsHtml] = useState<boolean>(false);
@@ -127,9 +126,7 @@ const ChatInterface = () => {
   const [conversationStatus, setConversationStatus] = useState<{
     [key: string]: string | undefined;
   }>({});
-  const [pendingResponseConversationId, setPendingResponseConversationId] = useState<string | null>(
-    null
-  );
+
   const [showWelcome, setShowWelcome] = useState<boolean>(
     () => messages.length === 0 && !currentConversationId
   );
@@ -498,7 +495,7 @@ const ChatInterface = () => {
     setIsHtml(['html'].includes(citationMeta?.extension));
     setIsTextFile(['txt'].includes(citationMeta?.extension));
     setIsExcel(isExcelOrCSV);
-    setIsPdf(['pptx', 'ppt', 'pdf'].includes(citationMeta?.extension));
+
 
     // Allow component to mount
     setTimeout(() => {
@@ -536,7 +533,6 @@ const ChatInterface = () => {
   // Handle new chat creation
   const handleNewChat = useCallback((): void => {
     // First apply the critical state changes that would affect routing
-    setPendingResponseConversationId(null);
     setActiveRequestTracker({ current: null, type: null });
     currentConversationIdRef.current = null;
     setCurrentConversationId(null);
@@ -832,7 +828,6 @@ const ChatInterface = () => {
         setActiveRequestTracker({ current: null, type: null });
         setLoadingConversations({});
         setConversationStatus({});
-        setPendingResponseConversationId(null);
 
         // Reset UI state with slight delay
         setTimeout(() => {

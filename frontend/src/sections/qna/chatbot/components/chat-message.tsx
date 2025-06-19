@@ -1,45 +1,47 @@
-import type { Metadata, CustomCitation } from 'src/types/chat-bot';
-import type { Record, ChatMessageProps, MessageContentProps } from 'src/types/chat-message';
+import type { CustomCitation } from 'src/types/chat-bot';
+import type { ChatMessageProps, MessageContentProps, Record } from 'src/types/chat-message';
 
-import remarkGfm from 'remark-gfm';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+
 import { Icon } from '@iconify/react';
-import ReactMarkdown from 'react-markdown';
+import accountIcon from '@iconify-icons/mdi/account-outline';
+import downIcon from '@iconify-icons/mdi/chevron-down';
+import rightIcon from '@iconify-icons/mdi/chevron-right';
 import upIcon from '@iconify-icons/mdi/chevron-up';
 import eyeIcon from '@iconify-icons/mdi/eye-outline';
-import refreshIcon from '@iconify-icons/mdi/refresh';
-import loadingIcon from '@iconify-icons/mdi/loading';
-import downIcon from '@iconify-icons/mdi/chevron-down';
-import robotIcon from '@iconify-icons/mdi/robot-outline';
-import rightIcon from '@iconify-icons/mdi/chevron-right';
-import accountIcon from '@iconify-icons/mdi/account-outline';
 import fileDocIcon from '@iconify-icons/mdi/file-document-outline';
-import React, { useRef, useMemo, useState, useCallback } from 'react';
+import loadingIcon from '@iconify-icons/mdi/loading';
+import refreshIcon from '@iconify-icons/mdi/refresh';
+import robotIcon from '@iconify-icons/mdi/robot-outline';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import {
   Box,
-  Chip,
-  Fade,
-  Paper,
-  Stack,
-  Dialog,
   Button,
-  Popper,
-  Tooltip,
-  Divider,
-  Collapse,
-  Typography,
-  IconButton,
-  DialogTitle,
-  DialogContent,
+  Chip,
   CircularProgress,
   ClickAwayListener,
+  Collapse,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  Fade,
+  IconButton,
+  Paper,
+  Popper,
+  Stack,
+  Tooltip,
+  Typography,
   alpha,
   useTheme,
 } from '@mui/material';
 
-import RecordDetails from './record-details';
-import MessageFeedback from './message-feedback';
 import CitationHoverCard from './citations-hover-card';
+import MessageFeedback from './message-feedback';
+import RecordDetails from './record-details';
 
 const formatTime = (createdAt: Date) => {
   const date = new Date(createdAt);

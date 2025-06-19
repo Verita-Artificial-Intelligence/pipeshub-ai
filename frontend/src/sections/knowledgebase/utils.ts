@@ -36,10 +36,6 @@ export const searchKnowledgeBase = async (
   filters: SearchFilters = {}
 ): Promise<SearchResponse['searchResponse']> => {
   try {
-    const queryParams = new URLSearchParams({
-      topK: topK.toString(),
-      ...(filters as any),
-    });
     const body = {
       query: searchtext,
       limit: topK,

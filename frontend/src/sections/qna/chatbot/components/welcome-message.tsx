@@ -1,18 +1,19 @@
 // WelcomeMessage.tsx - With separated query state
-import React, { useState, useRef, useCallback, useEffect, memo } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+
 import { Icon } from '@iconify/react';
 import githubIcon from '@iconify-icons/mdi/github';
 import sendIcon from '@iconify-icons/mdi/send';
 
 import {
   Box,
-  Paper,
-  useTheme,
-  Typography,
-  Link,
-  IconButton,
   Container,
+  IconButton,
+  Link,
+  Paper,
+  Typography,
   alpha,
+  useTheme,
 } from '@mui/material';
 
 // Separate TextInput component that manages its own state
@@ -317,7 +318,6 @@ interface WelcomeMessageProps {
 const WelcomeMessageComponent = ({ onSubmit, isLoading = false }: WelcomeMessageProps) => {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
-  const messageRef = useRef('');
   const isSubmittingRef = useRef(false);
 
   // Direct submission handler that stores message text in a ref
