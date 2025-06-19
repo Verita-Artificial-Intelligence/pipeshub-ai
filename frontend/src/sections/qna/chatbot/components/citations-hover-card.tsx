@@ -1,26 +1,27 @@
-import type { CustomCitation } from 'src/types/chat-bot';
 import type { Record } from 'src/types/chat-message';
+import type { CustomCitation } from 'src/types/chat-bot';
 
 import React from 'react';
 import { Icon } from '@iconify/react';
 import eyeIcon from '@iconify-icons/mdi/eye-outline';
-import fileDocumentIcon from '@iconify-icons/mdi/file-document-outline';
 import linkIcon from '@iconify-icons/mdi/open-in-new';
+import fileDocumentIcon from '@iconify-icons/mdi/file-document-outline';
 
 import {
   Box,
-  Button,
   Card,
   Chip,
   Fade,
-  IconButton,
   Stack,
-  Tooltip,
-  Typography,
   alpha,
+  Button,
   styled,
+  Tooltip,
   useTheme,
+  IconButton,
+  Typography,
 } from '@mui/material';
+
 import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
 
 // Styled components for consistent design

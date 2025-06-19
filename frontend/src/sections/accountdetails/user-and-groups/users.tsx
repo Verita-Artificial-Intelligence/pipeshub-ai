@@ -18,6 +18,7 @@ import {
   Box,
   Chip,
   Menu,
+  Fade,
   Table,
   Stack,
   Paper,
@@ -45,8 +46,7 @@ import {
   DialogActions,
   TableContainer,
   TablePagination,
-  CircularProgress,
-  Fade
+  CircularProgress
 } from '@mui/material';
 
 import { useAdmin } from 'src/context/AdminContext';
@@ -1054,8 +1054,7 @@ function AddUserModal({ open, onClose, groups, onUsersAdded }: AddUserModalProps
   };
 
   return (
-    <>
-      <Dialog
+    <Dialog
         open={open}
         onClose={onClose}
         maxWidth="sm"
@@ -1571,7 +1570,6 @@ function AddUserModal({ open, onClose, groups, onUsersAdded }: AddUserModalProps
           </Button>
         </DialogActions>
       </Dialog>
-    </>
   );
 }
 
@@ -1667,8 +1665,7 @@ function AddUsersToGroupsModal({
   };
 
   return (
-    <>
-      <Dialog
+    <Dialog
         open={open}
         onClose={onClose}
         maxWidth="sm"
@@ -2100,7 +2097,6 @@ function AddUsersToGroupsModal({
           </Button>
         </DialogActions>
       </Dialog>
-    </>
   );
 }
 

@@ -1,48 +1,47 @@
 import type {
+  Message,
   Citation,
   Conversation,
   CustomCitation,
-  ExpandedCitationsState,
   FormattedMessage,
-  Message,
+  ExpandedCitationsState,
 } from 'src/types/chat-bot';
-
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
 
 import { Icon } from '@iconify/react';
 import menuIcon from '@iconify-icons/mdi/menu';
+import { useParams, useNavigate } from 'react-router';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 
 import {
-  Alert,
   Box,
-  Button,
-  CircularProgress,
-  IconButton,
-  Snackbar,
-  Tooltip,
+  Alert,
   alpha,
+  Button,
   styled,
+  Tooltip,
+  Snackbar,
   useTheme,
+  IconButton,
+  CircularProgress,
 } from '@mui/material';
 
 import axios from 'src/utils/axios';
 
 import { CONFIG } from 'src/config-global';
 
-import { getConnectorPublicUrl } from 'src/sections/accountdetails/account-settings/services/utils/services-configuration-service';
 import { ORIGIN } from 'src/sections/knowledgebase/constants/knowledge-search';
+import { getConnectorPublicUrl } from 'src/sections/accountdetails/account-settings/services/utils/services-configuration-service';
 
 import ChatInput from './components/chat-input';
-import ChatMessagesArea from './components/chat-message-area';
 import ChatSidebar from './components/chat-sidebar';
-import DocxHighlighterComp from './components/docx-highlighter';
-import ExcelViewer from './components/excel-highlighter';
 import HtmlViewer from './components/html-highlighter';
-import MarkdownViewer from './components/markdown-highlighter';
-import PdfHighlighterComp from './components/pdf-highlighter';
 import TextViewer from './components/text-highlighter';
+import ExcelViewer from './components/excel-highlighter';
 import WelcomeMessage from './components/welcome-message';
+import ChatMessagesArea from './components/chat-message-area';
+import PdfHighlighterComp from './components/pdf-highlighter';
+import MarkdownViewer from './components/markdown-highlighter';
+import DocxHighlighterComp from './components/docx-highlighter';
 
 const DRAWER_WIDTH = 300;
 

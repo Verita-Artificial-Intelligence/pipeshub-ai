@@ -1,7 +1,8 @@
 // services/llm-config.ts 
 
 import axios from 'src/utils/axios';
-import { LlmFormValues, ProviderType } from '../providers/types';
+
+import type { ProviderType, LlmFormValues } from '../providers/types';
 
 let pendingRequest: Promise<LlmFormValues | null> | null = null;
 

@@ -1,7 +1,8 @@
 // services/embedding-config.ts
 
 import axios from 'src/utils/axios';
-import { EmbeddingFormValues, EmbeddingProviderType } from '../providers';
+
+import type { EmbeddingFormValues, EmbeddingProviderType } from '../providers';
 
 /**
  * Fetch the current embedding configuration from the API

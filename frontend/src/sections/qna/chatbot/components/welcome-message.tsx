@@ -1,19 +1,18 @@
 // WelcomeMessage.tsx - With separated query state
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
-
 import { Icon } from '@iconify/react';
-import githubIcon from '@iconify-icons/mdi/github';
 import sendIcon from '@iconify-icons/mdi/send';
+import githubIcon from '@iconify-icons/mdi/github';
+import React, { memo, useRef, useState, useEffect, useCallback } from 'react';
 
 import {
   Box,
-  Container,
-  IconButton,
   Link,
   Paper,
-  Typography,
   alpha,
   useTheme,
+  Container,
+  IconButton,
+  Typography,
 } from '@mui/material';
 
 // Separate TextInput component that manages its own state
@@ -39,7 +38,7 @@ const TextInput = memo(
     // Handle input changes locally
     const handleChange = useCallback(
       (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const value = e.target.value;
+        const {value} = e.target;
         setInputText(value);
         setHasText(!!value.trim());
 
@@ -300,7 +299,7 @@ const Footer = memo(({ isDark }: { isDark: boolean }) => {
             color: 'inherit',
           }}
         />
-        pipeshub-ai
+        verita-ai
       </Link>
     </Box>
   );
@@ -376,7 +375,7 @@ const WelcomeMessageComponent = ({ onSubmit, isLoading = false }: WelcomeMessage
             WebkitTextFillColor: 'transparent',
           }}
         >
-          PipesHub AI
+          Verita AI
         </Typography>
 
         <Typography

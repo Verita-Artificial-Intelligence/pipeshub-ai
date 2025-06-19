@@ -1,18 +1,17 @@
 // components/LlmConfigForm.tsx
 
-import type { SubmitHandler } from 'react-hook-form';
 import type { SelectChangeEvent } from '@mui/material';
 
 import closeIcon from '@iconify-icons/mdi/close';
 import pencilIcon from '@iconify-icons/mdi/pencil';
 import infoIcon from '@iconify-icons/mdi/info-outline';
 import React, {
+  useRef,
   useState,
   useEffect,
   forwardRef,
-  useImperativeHandle,
   useCallback,
-  useRef,
+  useImperativeHandle,
 } from 'react';
 
 import { alpha, useTheme } from '@mui/material/styles';
@@ -20,6 +19,7 @@ import {
   Box,
   Grid,
   Link,
+  Fade,
   Alert,
   Select,
   Button,
@@ -28,14 +28,16 @@ import {
   InputLabel,
   FormControl,
   CircularProgress,
-  Fade,
 } from '@mui/material';
 
 import { Iconify } from 'src/components/iconify';
+
+import { providers } from '../providers';
 import { ProviderField } from './provider-field';
-import { providers, ProviderType, LlmFormValues } from '../providers';
 import { useProviderForms } from '../hooks/use-provider-form';
 import { getLlmConfig, updateLlmConfig } from '../services/llm-config';
+
+import type { ProviderType, LlmFormValues } from '../providers';
 
 interface LlmConfigFormProps {
   onValidationChange: (isValid: boolean) => void;
@@ -202,7 +204,7 @@ const LlmConfigForm = forwardRef<LlmConfigFormRef, LlmConfigFormProps>(
         // Measure height after a short delay to ensure all elements are rendered
         const timer = setTimeout(() => {
           if (formContainerRef.current) {
-            const height = formContainerRef.current.getBoundingClientRect().height;
+            const {height} = formContainerRef.current.getBoundingClientRect();
             if (height > 0) {
               // Only store heights for providers that have fully loaded
               setProviderHeights((prev) => ({

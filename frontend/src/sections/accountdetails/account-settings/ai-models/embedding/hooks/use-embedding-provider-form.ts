@@ -1,15 +1,20 @@
 // hooks/use-embedding-provider-form.ts
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { useForm, UseFormReturn } from 'react-hook-form';
+import type { UseFormReturn } from 'react-hook-form';
+
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRef, useState, useEffect, useCallback } from 'react';
+
 import {
-  EmbeddingProviderType,
-  EmbeddingFormValues,
-  EmbeddingProviderConfig,
-  getEmbeddingProviderById,
   embeddingProviders,
+  getEmbeddingProviderById,
 } from '../providers';
+
+import type {
+  EmbeddingFormValues,
+  EmbeddingProviderType,
+  EmbeddingProviderConfig} from '../providers';
 
 // Define a custom return type that extends UseFormReturn with providerConfig
 type EmbeddingProviderFormReturn = UseFormReturn<any> & {

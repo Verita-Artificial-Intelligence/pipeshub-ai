@@ -1,7 +1,8 @@
 // providers/cohere.ts
 
 import { z } from 'zod';
-import { EmbeddingProviderConfig } from './types';
+
+import type { EmbeddingProviderConfig } from './types';
 
 // Zod schema for Cohere validation
 export const cohereEmbeddingSchema = z.object({

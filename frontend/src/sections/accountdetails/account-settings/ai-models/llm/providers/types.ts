@@ -1,6 +1,6 @@
 // providers/types.ts 
 
-import { z } from 'zod';
+import type { z } from 'zod';
 import type { IconifyIcon } from '@iconify/react';
 
 // Provider type definitions

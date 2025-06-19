@@ -1,17 +1,19 @@
 // components/embedding-field.tsx
 
-import React, { useState, memo } from 'react';
+import type { IconifyIcon } from '@iconify/react';
+
 import { Controller } from 'react-hook-form';
-import { alpha, useTheme } from '@mui/material/styles';
+import keyIcon from '@iconify-icons/mdi/key';
+import React, { memo, useState } from 'react';
+import robotIcon from '@iconify-icons/mdi/robot';
 import eyeIcon from '@iconify-icons/eva/eye-fill';
 import eyeOffIcon from '@iconify-icons/eva/eye-off-fill';
-import keyIcon from '@iconify-icons/mdi/key';
-import robotIcon from '@iconify-icons/mdi/robot';
-import { IconifyIcon } from '@iconify/react';
+
+import { alpha, useTheme } from '@mui/material/styles';
 import {
   TextField,
-  InputAdornment,
   IconButton,
+  InputAdornment,
 } from '@mui/material';
 
 import { Iconify } from 'src/components/iconify';

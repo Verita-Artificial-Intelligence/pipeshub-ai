@@ -1,47 +1,45 @@
 import type { CustomCitation } from 'src/types/chat-bot';
-import type { ChatMessageProps, MessageContentProps, Record } from 'src/types/chat-message';
+import type { Record, ChatMessageProps, MessageContentProps } from 'src/types/chat-message';
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-
+import remarkGfm from 'remark-gfm';
 import { Icon } from '@iconify/react';
-import accountIcon from '@iconify-icons/mdi/account-outline';
-import downIcon from '@iconify-icons/mdi/chevron-down';
-import rightIcon from '@iconify-icons/mdi/chevron-right';
+import ReactMarkdown from 'react-markdown';
 import upIcon from '@iconify-icons/mdi/chevron-up';
 import eyeIcon from '@iconify-icons/mdi/eye-outline';
-import fileDocIcon from '@iconify-icons/mdi/file-document-outline';
 import loadingIcon from '@iconify-icons/mdi/loading';
 import refreshIcon from '@iconify-icons/mdi/refresh';
+import downIcon from '@iconify-icons/mdi/chevron-down';
+import rightIcon from '@iconify-icons/mdi/chevron-right';
 import robotIcon from '@iconify-icons/mdi/robot-outline';
-
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import accountIcon from '@iconify-icons/mdi/account-outline';
+import fileDocIcon from '@iconify-icons/mdi/file-document-outline';
+import React, { useRef, useMemo, useState, useCallback } from 'react';
 
 import {
   Box,
-  Button,
   Chip,
+  Fade,
+  Paper,
+  Stack,
+  alpha,
+  Button,
+  Dialog,
+  Popper,
+  Divider,
+  Tooltip,
+  Collapse,
+  useTheme,
+  IconButton,
+  Typography,
+  DialogTitle,
+  DialogContent,
   CircularProgress,
   ClickAwayListener,
-  Collapse,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Divider,
-  Fade,
-  IconButton,
-  Paper,
-  Popper,
-  Stack,
-  Tooltip,
-  Typography,
-  alpha,
-  useTheme,
 } from '@mui/material';
 
-import CitationHoverCard from './citations-hover-card';
-import MessageFeedback from './message-feedback';
 import RecordDetails from './record-details';
+import MessageFeedback from './message-feedback';
+import CitationHoverCard from './citations-hover-card';
 
 const formatTime = (createdAt: Date) => {
   const date = new Date(createdAt);

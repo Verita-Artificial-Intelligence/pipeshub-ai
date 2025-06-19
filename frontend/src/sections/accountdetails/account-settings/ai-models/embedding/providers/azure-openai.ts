@@ -1,10 +1,9 @@
 // providers/azure-openai.ts
 
 import { z } from 'zod';
-import keyIcon from '@iconify-icons/mdi/key';
 import linkIcon from '@iconify-icons/mdi/link';
-import robotIcon from '@iconify-icons/mdi/robot';
-import { EmbeddingProviderConfig } from './types';
+
+import type { EmbeddingProviderConfig } from './types';
 
 // Zod schema for Azure OpenAI validation
 export const azureEmbeddingSchema = z.object({

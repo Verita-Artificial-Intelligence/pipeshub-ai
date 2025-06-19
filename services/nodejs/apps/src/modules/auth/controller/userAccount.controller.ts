@@ -101,7 +101,7 @@ export class UserAccountController {
     }
     if (userCredentials.isBlocked) {
       throw new BadRequestError(
-        'Your account has been disabled as you have entered incorrect OTP/Password too many times. Please reach out to your admin or reachout to contact@pipeshub.com',
+        'Your account has been disabled as you have entered incorrect OTP/Password too many times. Please reach out to your admin or reachout to contact@verita-ai.com',
       );
     }
     if (!userCredentials.otpValidity || !userCredentials.hashedOTP) {
@@ -313,7 +313,7 @@ export class UserAccountController {
         emailTemplateType: 'resetPassword',
         initiator: { jwtAuthToken: mailAuthToken },
         usersMails: [user.email],
-        subject: 'PipesHub | Reset your password!',
+        subject: 'Verita | Reset your password!',
         templateData: {
           orgName: org?.shortName || org?.registeredName,
           name: user.fullName,
@@ -686,7 +686,7 @@ export class UserAccountController {
 
     if (userCredentialData?.isBlocked) {
       throw new ForbiddenError(
-        'OTP not sent. You have entered incorrect OTP/Password too many times. Your account has been disabled. Please reach out to your admin or reachout to contact@pipeshub.com to get it restored.',
+        'OTP not sent. You have entered incorrect OTP/Password too many times. Your account has been disabled. Please reach out to your admin or reachout to support@verita-ai.com to get it restored.',
       );
     }
 
@@ -814,7 +814,7 @@ export class UserAccountController {
 
       if (userCredential.isBlocked) {
         throw new BadRequestError(
-          'Your account has been disabled. If it is a mistake, Please reach out to contact@pipeshub.com to get it restored.',
+          'Your account has been disabled. If it is a mistake, Please reach out to support@verita-ai.com to get it restored.',
         );
       }
 

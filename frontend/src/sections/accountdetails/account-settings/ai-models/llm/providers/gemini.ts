@@ -2,7 +2,8 @@
 // providers/gemini.ts
 
 import { z } from 'zod';
-import { ProviderConfig } from './types';
+
+import type { ProviderConfig } from './types';
 
 // Zod schema for Gemini validation
 export const geminiSchema = z.object({

@@ -5,12 +5,13 @@ import type { SelectChangeEvent } from '@mui/material';
 import closeIcon from '@iconify-icons/mdi/close';
 import pencilIcon from '@iconify-icons/mdi/pencil';
 import infoIcon from '@iconify-icons/mdi/info-outline';
-import React, { useState, useEffect, forwardRef, useImperativeHandle, useCallback, useRef } from 'react';
+import React, { useRef, useState, useEffect, forwardRef, useCallback, useImperativeHandle } from 'react';
 
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Box,
   Grid,
+  Fade,
   Alert,
   Select,
   Button,
@@ -19,14 +20,16 @@ import {
   InputLabel,
   FormControl,
   CircularProgress,
-  Fade,
 } from '@mui/material';
 
 import { Iconify } from 'src/components/iconify';
+
+import { embeddingProviders } from '../providers';
 import { EmbeddingField } from './embedding-field';
-import { embeddingProviders, EmbeddingProviderType, EmbeddingFormValues } from '../providers';
 import { useEmbeddingProviderForms } from '../hooks/use-embedding-provider-form';
 import { getEmbeddingConfig, updateEmbeddingConfig } from '../services/embedding-config';
+
+import type { EmbeddingFormValues, EmbeddingProviderType } from '../providers';
 
 interface EmbeddingConfigFormProps {
   onValidationChange: (isValid: boolean) => void;
@@ -185,7 +188,7 @@ const EmbeddingConfigForm = forwardRef<EmbeddingConfigFormRef, EmbeddingConfigFo
         // Measure height after a short delay to ensure all elements are rendered
         const timer = setTimeout(() => {
           if (formContainerRef.current) {
-            const height = formContainerRef.current.getBoundingClientRect().height;
+            const {height} = formContainerRef.current.getBoundingClientRect();
             if (height > 0) {
               // Only store heights for providers that have fully loaded
               setProviderHeights(prev => ({

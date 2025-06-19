@@ -3,7 +3,8 @@
 import { z } from 'zod';
 import linkIcon from '@iconify-icons/mdi/link';
 import cubeIcon from '@iconify-icons/mdi/cube-outline';
-import { ProviderConfig } from './types';
+
+import type { ProviderConfig } from './types';
 
 // Zod schema for Azure OpenAI validation
 export const azureSchema = z.object({

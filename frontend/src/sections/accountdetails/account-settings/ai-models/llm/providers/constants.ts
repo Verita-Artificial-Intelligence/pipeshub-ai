@@ -1,11 +1,12 @@
 // providers/constants.ts
 
-import { ProviderConfig, ProviderType } from './types';
 import { openAIProvider } from './openai';
-import { azureOpenAIProvider } from './azure-openai';
 import { geminiProvider } from './gemini';
 import { anthropicProvider } from './anthropic';
+import { azureOpenAIProvider } from './azure-openai';
 import { openAICompatibleProvider } from './openai-compatible';
+
+import type { ProviderType, ProviderConfig } from './types';
 
 // All providers in a simple array
 export const providers = [

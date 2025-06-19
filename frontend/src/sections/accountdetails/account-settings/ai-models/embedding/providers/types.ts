@@ -1,7 +1,7 @@
 // providers/types.ts
 
-import { z } from 'zod';
-import { IconifyIcon } from '@iconify/react';
+import type { z } from 'zod';
+import type { IconifyIcon } from '@iconify/react';
 
 // Base provider interface
 export interface BaseEmbeddingProviderConfig {

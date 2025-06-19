@@ -2,7 +2,8 @@
 
 import { z } from 'zod';
 import linkIcon from '@iconify-icons/mdi/link';
-import { ProviderConfig } from './types';
+
+import type { ProviderConfig } from './types';
 
 // Zod schema for OpenAI API Compatible validation
 export const openAICompatibleSchema = z.object({

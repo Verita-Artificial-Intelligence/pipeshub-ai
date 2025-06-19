@@ -1,7 +1,8 @@
 // providers/default.ts
 
 import { z } from 'zod';
-import { EmbeddingProviderConfig } from './types';
+
+import type { EmbeddingProviderConfig } from './types';
 
 // Zod schema for Default option (no validation needed)
 export const defaultEmbeddingSchema = z.object({

@@ -1,8 +1,8 @@
 // providers/sentence-transformer.ts
 
 import { z } from 'zod';
-import robotIcon from '@iconify-icons/mdi/robot';
-import { EmbeddingProviderConfig } from './types';
+
+import type { EmbeddingProviderConfig } from './types';
 
 // Zod schema for Sentence Transformers validation
 export const sentenceTransformersEmbeddingSchema = z.object({

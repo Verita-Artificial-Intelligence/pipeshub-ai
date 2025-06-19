@@ -47,10 +47,10 @@ import {
   OrgExists,
   authInitConfig,
   forgotPassword,
+  SignInWithOAuth,
   SignInWithGoogle,
   SignInWithAzureAd,
   SignInWithMicrosoft,
-  SignInWithOAuth,
 } from 'src/auth/context/jwt';
 
 import OtpSignIn from './otp-sign-in';

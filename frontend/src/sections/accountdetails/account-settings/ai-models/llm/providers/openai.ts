@@ -1,7 +1,8 @@
 // providers/openai.ts 
 
 import { z } from 'zod';
-import { ProviderConfig } from './types';
+
+import type { ProviderConfig } from './types';
 
 // Zod schema for OpenAI validation
 export const openaiSchema = z.object({

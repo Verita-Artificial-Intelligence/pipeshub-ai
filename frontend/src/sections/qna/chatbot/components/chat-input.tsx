@@ -1,10 +1,9 @@
 // Self-Contained ChatInput.tsx - Manages its own state
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-
 import { Icon } from '@iconify/react';
 import sendIcon from '@iconify-icons/mdi/send';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 
-import { Box, IconButton, Paper, TextField, alpha, useTheme } from '@mui/material';
+import { Box, Paper, alpha, useTheme, TextField, IconButton } from '@mui/material';
 
 type ChatInputProps = {
   onSubmit: (message: string) => Promise<void>; // Pass message directly

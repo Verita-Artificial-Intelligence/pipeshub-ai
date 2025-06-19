@@ -1,15 +1,16 @@
 // components/chat-message-area.tsx
 import type {
   CustomCitation,
-  ExpandedCitationsState,
   FormattedMessage,
+  ExpandedCitationsState,
 } from 'src/types/chat-bot';
 
-import React, { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
-import { Box, CircularProgress, Fade, Stack, Typography, useTheme } from '@mui/material';
-import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
+import React, { useMemo, useState, useEffect, useCallback, useLayoutEffect } from 'react';
+
+import { Box, Fade, Stack, useTheme, Typography, CircularProgress } from '@mui/material';
 
 import ChatMessage from './chat-message';
+import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
 
 type ChatMessagesAreaProps = {
   messages: FormattedMessage[];

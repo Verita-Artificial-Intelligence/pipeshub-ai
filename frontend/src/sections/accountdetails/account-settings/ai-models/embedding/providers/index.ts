@@ -1,12 +1,13 @@
 // providers/index.ts
 
-import { EmbeddingProviderConfig, EmbeddingProviderType } from './types';
 import { openAIEmbeddingProvider } from './openai';
-import { azureOpenAIEmbeddingProvider } from './azure-openai';
-import { sentenceTransformersEmbeddingProvider } from './sentence-transformer';
 import { geminiEmbeddingProvider } from './gemini';
 import { cohereEmbeddingProvider } from './cohere';
 import { defaultEmbeddingProvider } from './default';
+import { azureOpenAIEmbeddingProvider } from './azure-openai';
+import { sentenceTransformersEmbeddingProvider } from './sentence-transformer';
+
+import type { EmbeddingProviderType, EmbeddingProviderConfig } from './types';
 
 // Register all embedding providers in this array
 export const embeddingProviders: EmbeddingProviderConfig[] = [
