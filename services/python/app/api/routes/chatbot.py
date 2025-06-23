@@ -199,30 +199,40 @@ async def askAI(
             org_info = await arango_service.get_document(
                 org_id, CollectionNames.ORGS.value
             )
-            if (
-                org_info.get("accountType") == AccountType.ENTERPRISE.value
-                or org_info.get("accountType") == AccountType.BUSINESS.value
-            ):
-                user_data = (
-                    "I am the user of the organization. "
-                    f"My name is {user_info.get('fullName', 'a user')} "
-                    f"({user_info.get('designation', '')}) "
-                    f"from {org_info.get('name', 'the organization')}. "
-                    "Please provide accurate and relevant information based on the available context."
-                )
-            else:
-                user_data = (
-                    "I am the user. "
-                    f"My name is {user_info.get('fullName', 'a user')} "
-                    f"({user_info.get('designation', '')}) "
-                    "Please provide accurate and relevant information based on the available context."
-                )
-        else:
-            user_data = ""
+            
+            # Log if org_info is None for debugging
+            if org_info is None:
+                logger.warning(f"Organization not found for org_id: {org_id}")
+            
+            # Check if org_info exists and has valid data
+            try:
+                # if org_info and (
+                #     org_info.get("accountType") == AccountType.ENTERPRISE.value
+                #     or org_info.get("accountType") == AccountType.BUSINESS.value
+                # ):
+                #     user_data = (
+                #         "I am the user of the organization. "
+                #         f"My name is {user_info.get('fullName', 'a user') if user_info else 'a user'} "
+                #         f"({user_info.get('designation', '') if user_info else ''}) "
+                #         f"from {org_info.get('name', 'the organization')}. "
+                #         "Please provide accurate and relevant information based on the available context."
+                #     )
+                # pass
+                # else:
+                    # user_data = (
+                    # #     "I am the user. "
+                    # #     f"My name is {user_info.get('fullName', 'a user') if user_info else 'a user'} "
+                    # #     f"({user_info.get('designation', '') if user_info else ''}) "
+                    # #     "Please provide accurate and relevant information based on the available context."
+                    # # )
+                pass
+            except Exception as e:
+                logger.error(f"Error in user_data: {str(e)}", exc_info=True)
+                user_data = ""
 
         template = Template(qna_prompt)
         rendered_form = template.render(
-            user_data=user_data,
+            user_data="",
             query=query_info.query,
             rephrased_queries=[],  # This keeps all query results for reference
             chunks=final_results,

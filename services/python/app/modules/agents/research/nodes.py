@@ -235,7 +235,7 @@ def prepare_prompt_node(
         from jinja2 import Template
         template = Template(qna_prompt)
         rendered_prompt = template.render(
-            user_data=user_data,
+            user_data="",
             query=state["query"],
             rephrased_queries=[],  # This keeps all query results for reference
             chunks=state["final_results"],
