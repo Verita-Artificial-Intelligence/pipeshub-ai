@@ -521,7 +521,7 @@ const ConnectorSettings = () => {
           Refer to{' '}
           {accountType === 'business' ? (
             <Link
-              href="https://docs.pipeshub.com/enterprise/connectors/overview"
+              href="https://docs.verita.ai/enterprise/connectors/overview"
               target="_blank"
               rel="noopener"
               sx={{
@@ -537,7 +537,7 @@ const ConnectorSettings = () => {
             </Link>
           ) : (
             <Link
-              href="https://docs.pipeshub.com/individual/connectors/overview"
+              href="https://docs.verita.ai/individual/connectors/overview"
               target="_blank"
               rel="noopener"
               sx={{

@@ -429,7 +429,7 @@ const ExternalServicesSettings = () => {
         <Typography variant="body2">
           Refer to{' '}
           <Link
-            href="https://docs.pipeshub.com/services/externalServices"
+            href="https://docs.verita.ai/services/externalServices"
             target="_blank"
             rel="noopener"
             sx={{

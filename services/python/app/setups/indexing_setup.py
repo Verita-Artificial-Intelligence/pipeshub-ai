@@ -222,10 +222,8 @@ class AppContainer(containers.DeclarativeContainer):
     # Redis scheduler
     async def _create_redis_scheduler(logger, config_service) -> RedisScheduler:
         """Async factory for RedisScheduler"""
-        redis_config = await config_service.get_config(
-            config_node_constants.REDIS.value
-        )
-        redis_url = f"redis://{redis_config['host']}:{redis_config['port']}/{RedisConfig.REDIS_DB.value}"
+        import os
+        redis_url = os.getenv('REDIS_URL', f'redis://redis:6379/{RedisConfig.REDIS_DB.value}')
 
         redis_scheduler = RedisScheduler(redis_url=redis_url, logger=logger, delay_hours=1)
         return redis_scheduler
@@ -376,22 +374,20 @@ async def health_check_redis(container) -> None:
     logger = container.logger()
     logger.info("🔍 Starting Redis health check...")
     try:
-        redis_config = await container.config_service().get_config(
-            config_node_constants.REDIS.value
-        )
-        redis_url = f"redis://{redis_config['host']}:{redis_config['port']}/{RedisConfig.REDIS_DB.value}"
+        import os
+        redis_url = os.getenv('REDIS_URL', f'redis://redis:6379/{RedisConfig.REDIS_DB.value}')
         logger.debug(f"Checking Redis connection at: {redis_url}")
         # Create Redis client and attempt to ping
         redis_client = Redis.from_url(redis_url, socket_timeout=5.0)
         try:
-            await redis_client.ping()
+            redis_client.ping()
             logger.info("✅ Redis health check passed")
         except RedisError as re:
             error_msg = f"Failed to connect to Redis: {str(re)}"
             logger.error(f"❌ {error_msg}")
             raise Exception(error_msg)
         finally:
-            await redis_client.close()
+            redis_client.close()
 
     except Exception as e:
         error_msg = f"Redis health check failed: {str(e)}"

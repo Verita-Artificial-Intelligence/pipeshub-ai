@@ -254,7 +254,7 @@ const UrlConfigStep: React.FC<UrlConfigStepProps> = ({
 
       <Alert variant="outlined" severity="info" sx={{ my: 3 }}>
         Refer to{' '}
-        <Link href="https://docs.pipeshub.com" target="_blank" rel="noopener">
+        <Link href="https://docs.verita.ai" target="_blank" rel="noopener">
           the documentation
         </Link>{' '}
         for more information.

@@ -481,7 +481,7 @@ const AiModelsSettings = () => {
         <Typography variant="body2">
           Refer to{' '}
           <Link 
-            href="https://docs.pipeshub.com/ai-models/overview" 
+            href="https://docs.verita.ai/ai-models/overview" 
             target="_blank" 
             rel="noopener"
             sx={{

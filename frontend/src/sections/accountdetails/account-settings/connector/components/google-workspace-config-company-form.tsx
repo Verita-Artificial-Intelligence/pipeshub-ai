@@ -560,7 +560,7 @@ export const GoogleWorkspaceConfigForm = forwardRef<
       <Alert variant="outlined" severity="info" sx={{ my: 3 }}>
         Refer to{' '}
         <Link
-          href="https://docs.pipeshub.com/enterprise/connectors/googleWorkspace"
+          href="https://docs.verita.ai/enterprise/connectors/googleWorkspace"
           target="_blank"
           rel="noopener"
         >

@@ -2,7 +2,7 @@
 
 <h2 align="center">
 <a href="https://www.pipeshub.com/">
-<img width="50%" src="https://raw.githubusercontent.com/pipeshub-ai/media-assets/refs/heads/main/images/pipeshub-logo.svg"/> 
+<img width="50%" src="https://raw.githubusercontent.com/Verita-Artificial-Intelligence/media-assets/refs/heads/main/images/pipeshub-logo.svg"/> 
 </a>
 </h2>
 
@@ -21,8 +21,8 @@
 
 <!--Intro-->
 
-<strong>[PipesHub](https://github.com/pipeshub-ai/pipeshub-ai)</strong> is the workplace AI platform for enterprises to improve how businesses operate and help employees and AI agents work more efficiently.
-In most companies, important work data is spread across multiple apps like Google Workspace, Microsoft 365, Slack, Jira, Confluence, and more. PipesHub AI helps you quickly find the right information using natural language search—just like Google.
+<strong>[Verita AI](https://github.com/Verita-Artificial-Intelligence/pipeshub-ai)</strong> is the workplace AI platform for enterprises to improve how businesses operate and help employees and AI agents work more efficiently.
+In most companies, important work data is spread across multiple apps like Google Workspace, Microsoft 365, Slack, Jira, Confluence, and more. Verita AI helps you quickly find the right information using natural language search—just like Google.
 It can answer questions, provide insights, and more. The platform not only delivers the most relevant results but also shows where the information came from, with proper citations, using Knowledge Graphs and Page Ranking.
 Beyond search, our platform allows enterprises to create custom apps and AI agents using a No-Code interface.
 
@@ -30,7 +30,7 @@ Beyond search, our platform allows enterprises to create custom apps and AI agen
   <img
     width="700"
     height="500"
-    src="https://raw.githubusercontent.com/pipeshub-ai/media-assets/refs/heads/main/images/Architecture%20Diagram.svg"
+    src="https://raw.githubusercontent.com/Verita-Artificial-Intelligence/media-assets/refs/heads/main/images/Architecture%20Diagram.svg"
     alt="PipesHub System Architecture"
   />
 
@@ -107,7 +107,7 @@ PipesHub — the Workplace AI Platform — can be run locally or deployed on the
 
 ```bash
 # Clone the repository
-git clone https://github.com/pipeshub-ai/pipeshub-ai.git
+git clone https://github.com/Verita-Artificial-Intelligence/pipeshub-ai.git
 
 # 📁 Navigate to the deployment folder
 cd pipeshub-ai/deployment/docker-compose
@@ -128,7 +128,7 @@ docker compose -f docker-compose.dev.yml -p pipeshub-ai down
 
 ```bash
 # Clone the repository
-git clone https://github.com/pipeshub-ai/pipeshub-ai.git
+git clone https://github.com/Verita-Artificial-Intelligence/pipeshub-ai.git
 
 # 📁 Navigate to the deployment folder
 cd pipeshub-ai/deployment/docker-compose
@@ -147,7 +147,7 @@ docker compose -f docker-compose.prod.yml -p pipeshub-ai down
 
 ## 👥 Contributing
 
-Want to join our community of developers? Please check out our [Contributing Guide](https://github.com/pipeshub-ai/pipeshub-ai/blob/main/CONTRIBUTING.md) for more details on how to set up the development environment, our coding standards, and the contribution workflow.
+Want to join our community of developers? Please check out our [Contributing Guide](https://github.com/Verita-Artificial-Intelligence/pipeshub-ai/blob/main/CONTRIBUTING.md) for more details on how to set up the development environment, our coding standards, and the contribution workflow.
 
 ## 🧪 Onboarding & Sample API Key Setup
 

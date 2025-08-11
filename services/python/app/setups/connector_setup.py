@@ -606,10 +606,9 @@ class AppContainer(containers.DeclarativeContainer):
 
     async def _create_redis_client(config_service) -> Redis:
         """Async method to initialize RedisClient."""
-        redis_config = await config_service.get_config(
-            config_node_constants.REDIS.value
-        )
-        url = f"redis://{redis_config['host']}:{redis_config['port']}/{RedisConfig.REDIS_DB.value}"
+        import os
+        redis_url = os.getenv('REDIS_URL', f'redis://redis:6379/{RedisConfig.REDIS_DB.value}')
+        url = redis_url
         return await aioredis.from_url(url, encoding="utf-8", decode_responses=True)
 
     # Core Resources
@@ -813,16 +812,13 @@ async def health_check_redis(container) -> None:
     logger = container.logger()
     logger.info("🔍 Starting Redis health check...")
     try:
-        config_service = container.config_service()
-        redis_config = await config_service.get_config(
-            config_node_constants.REDIS.value
-        )
-        redis_url = f"redis://{redis_config['host']}:{redis_config['port']}/{RedisConfig.REDIS_DB.value}"
+        import os
+        redis_url = os.getenv('REDIS_URL', f'redis://redis:6379/{RedisConfig.REDIS_DB.value}')
         logger.debug(f"Checking Redis connection at: {redis_url}")
         # Create Redis client and attempt to ping
         redis_client = Redis.from_url(redis_url, socket_timeout=5.0)
         try:
-            await redis_client.ping()
+            redis_client.ping()
             logger.info("✅ Redis health check passed")
         except RedisError as re:
             error_msg = f"Failed to connect to Redis: {str(re)}"

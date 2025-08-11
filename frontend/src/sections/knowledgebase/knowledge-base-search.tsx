@@ -20,7 +20,7 @@ import { createScrollableContainerStyle } from '../qna/chatbot/utils/styles/scro
 import { getConnectorPublicUrl } from '../accountdetails/account-settings/services/utils/services-configuration-service';
 
 import type { Filters } from './types/knowledge-base';
-import type { PipesHub, SearchResult, AggregatedDocument } from './types/search-response';
+import type { VeritaAI, SearchResult, AggregatedDocument } from './types/search-response';
 
 // Constants for sidebar widths - must match with the sidebar component
 const SIDEBAR_EXPANDED_WIDTH = 320;
@@ -82,7 +82,7 @@ export default function KnowledgeBaseSearch() {
   const [fileUrl, setFileUrl] = useState<string>('');
   const [recordCitations, setRecordCitations] = useState<AggregatedDocument | null>(null);
   const [hasSearched, setHasSearched] = useState<boolean>(false);
-  const [recordsMap, setRecordsMap] = useState<Record<string, PipesHub.Record>>({});
+  const [recordsMap, setRecordsMap] = useState<Record<string, VeritaAI.Record>>({});
   const [fileBuffer, setFileBuffer] = useState<ArrayBuffer | null>(null);
   const [highlightedCitation, setHighlightedCitation] = useState<SearchResult | null>();
   // Prevent rapid filter changes
@@ -149,7 +149,7 @@ export default function KnowledgeBaseSearch() {
   );
 
   const aggregateRecordsByRecordId = useCallback(
-    (records: PipesHub.Record[]): Record<string, PipesHub.Record> =>
+    (records: VeritaAI.Record[]): Record<string, VeritaAI.Record> =>
       records.reduce(
         (acc, record) => {
           // Use _key as the lookup key
@@ -160,7 +160,7 @@ export default function KnowledgeBaseSearch() {
 
           return acc;
         },
-        {} as Record<string, PipesHub.Record>
+        {} as Record<string, VeritaAI.Record>
       ),
 
     []
