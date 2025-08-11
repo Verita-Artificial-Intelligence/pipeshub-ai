@@ -31,7 +31,7 @@ Beyond search, our platform allows enterprises to create custom apps and AI agen
     width="700"
     height="500"
     src="https://raw.githubusercontent.com/Verita-Artificial-Intelligence/media-assets/refs/heads/main/images/Architecture%20Diagram.svg"
-    alt="PipesHub System Architecture"
+    alt="Verita AI System Architecture"
   />
 
 <h2>Spotlight Features</h2>
@@ -40,13 +40,13 @@ Beyond search, our platform allows enterprises to create custom apps and AI agen
 
 <p align="center">
   <a href="https://youtu.be/PJ_b7IFhnsc">
-    <img src="https://img.youtube.com/vi/PJ_b7IFhnsc/maxresdefault.jpg" alt="PipesHub Workplace AI" width="600" style="border-radius:10px"/>
+    <img src="https://img.youtube.com/vi/PJ_b7IFhnsc/maxresdefault.jpg" alt="Verita AI Workplace AI" width="600" style="border-radius:10px"/>
     <br>
     <img src="https://img.shields.io/badge/Watch%20Video-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch on YouTube"/>
   </a>
 </p>
 
-## Unmatched Value of PipesHub
+## Unmatched Value of Verita AI
 
 - **Choose Any Model, Your Way** – Bring your preferred deep learning models for both indexing and inference with total flexibility.
 - **Real-Time or Scheduled Indexing** – Index data as it flows or schedule it to run exactly when you need.
@@ -99,7 +99,7 @@ Beyond search, our platform allows enterprises to create custom apps and AI agen
 
 ## 🚀 Deployment Guide
 
-PipesHub — the Workplace AI Platform — can be run locally or deployed on the cloud using Docker Compose.
+Verita AI — the Workplace AI Platform — can be run locally or deployed on the cloud using Docker Compose.
 
 ---
 
@@ -156,11 +156,11 @@ To get started with Gemini models, follow these steps to set up your API key dur
 1. **Go to [Google AI Studio](https://aistudio.google.com/)**
 2. Click on the **“Get API Key”** button in the top-right corner.
 3. **Copy the API Key** from the popup.
-4. Visit the **PipesHub Frontend** (local or deployed URL).
+4. Visit the **Verita AI Frontend** (local or deployed URL).
 5. **Create an account** through the login page.
 6. During the onboarding process, On the AI model configuration step:
    - Select **“Gemini”** as your AI Model Provider
    - Paste your copied **API Key**
    - Provide the **model name** (e.g., `gemini-pro` or `gemini-pro-vision`)
 
-You're now ready to start using Gemini-powered Workplace AI features within PipesHub!
+You're now ready to start using Gemini-powered Workplace AI features within Verita AI!

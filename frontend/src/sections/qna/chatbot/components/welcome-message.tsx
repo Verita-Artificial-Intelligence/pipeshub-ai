@@ -393,7 +393,7 @@ const WelcomeMessageComponent = ({ onSubmit, isLoading = false }: WelcomeMessage
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Workplace AI that understands your workplace inside out
+          AI that understands your workplace inside out
         </Typography>
       </Box>
 
