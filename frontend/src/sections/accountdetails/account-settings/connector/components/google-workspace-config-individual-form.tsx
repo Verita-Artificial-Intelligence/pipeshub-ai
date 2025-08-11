@@ -481,7 +481,7 @@ const GoogleWorkspaceConfigForm = forwardRef<
       <Alert variant="outlined" severity="info" sx={{ my: 3 }}>
         Refer to{' '}
         <Link
-          href="https://docs.pipeshub.com/individual/connectors/googleWorkspace"
+          href="https://docs.verita.ai/individual/connectors/googleWorkspace"
           target="_blank"
           rel="noopener"
         >

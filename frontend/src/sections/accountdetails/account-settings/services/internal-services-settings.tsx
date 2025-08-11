@@ -245,7 +245,7 @@ const InternalServicesSettings = () => {
         <Typography variant="body2">
           Refer to{' '}
           <Link
-            href="https://docs.pipeshub.com/services/internalServices"
+            href="https://docs.verita.ai/services/internalServices"
             target="_blank"
             rel="noopener"
             sx={{

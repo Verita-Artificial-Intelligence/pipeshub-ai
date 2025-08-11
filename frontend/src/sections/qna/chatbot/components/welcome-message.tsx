@@ -271,7 +271,7 @@ const Footer = memo(({ isDark }: { isDark: boolean }) => {
       }}
     >
       <Link
-        href="https://github.com/pipeshub-ai/pipeshub-ai"
+        href="https://github.com/Verita-Artificial-Intelligence/pipeshub-ai"
         target="_blank"
         underline="none"
         sx={{
@@ -393,7 +393,7 @@ const WelcomeMessageComponent = ({ onSubmit, isLoading = false }: WelcomeMessage
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Workplace AI that understands your workplace inside out
+          AI that understands your workplace inside out
         </Typography>
       </Box>
 

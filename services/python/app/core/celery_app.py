@@ -30,10 +30,8 @@ class CeleryApp:
     async def configure_app(self) -> None:
         """Configure Celery application"""
         try:
-            redis_config = await self.config_service.get_config(
-                config_node_constants.REDIS.value
-            )
-            redis_url = f"redis://{redis_config['host']}:{redis_config['port']}/{RedisConfig.REDIS_DB.value}"
+            import os
+            redis_url = os.getenv('REDIS_URL', f'redis://redis:6379/{RedisConfig.REDIS_DB.value}')
 
             celery_config = {
                 "broker_url": redis_url,
